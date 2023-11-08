@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Konsumen</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Edit Konsumen</h1>
+
+    <form method="post" th:action="@{'/edit-konsumen/' + ${konsumen.id}}" th:object="${konsumen}">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama" th:field="*{nama}" required>
+        </div>
+        <div class="form-group">
+            <label for="alamat">Alamat</label>
+            <input type="text" class="form-control" id="alamat" name="alamat" th:field="*{alamat}" required>
+        </div>
+        <div class="form-group">
+            <label for="kota">Kota</label>
+            <input type="text" class="form-control" id="kota" name="kota" th:field="*{kota}" required>
+        </div>
+        <div class="form-group">
+            <label for="provinsi">Provinsi</label>
+            <input type="text" class="form-control" id="provinsi" name="provinsi" th:field="*{provinsi}" required>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="status" name="status" th:checked="${konsumen.status == 'Aktif'}">
+            <label for="status" class="form-check-label">Status (Aktif/Non-Aktif)</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Simpan Konsumen</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
