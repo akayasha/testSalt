@@ -17,7 +17,6 @@
         <thead>
         <tr>
             <th>No</th>
-            <th>ID</th>
             <th>Nama</th>
             <th>Alamat</th>
             <th>Kota</th>
@@ -29,7 +28,6 @@
         <tbody>
         <tr th:each="konsumen, rowStat : ${konsumenList}">
             <td th:text="${rowStat.index + 1}"></td>
-            <td th:text="${konsumen.id}"></td>
             <td th:text="${konsumen.nama}"></td>
             <td th:text="${konsumen.alamat}"></td>
             <td th:text="${konsumen.kota}"></td>
